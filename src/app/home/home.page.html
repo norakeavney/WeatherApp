@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Weather in Dublin
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="weatherData">
+    <ion-card-header>
+      <ion-card-title>{{ weatherData.name }}</ion-card-title>
+      <ion-card-subtitle>Temperature: {{ weatherData.main.temp }}°K</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Weather: {{ weatherData.weather[0].description }}<br>
+      Humidity: {{ weatherData.main.humidity }}%<br>
+      Wind Speed: {{ weatherData.wind.speed }} m/s
+    </ion-card-content>
+  </ion-card>
+  <ion-spinner *ngIf="!weatherData"></ion-spinner>
+</ion-content>
+

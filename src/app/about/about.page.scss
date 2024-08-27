@@ -17,7 +17,7 @@ ion-content {
     ion-card {
       border-radius: 15px; /* Rounded corners */
       --background: var(--ion-card-background);
-      color: var(--ion-text-color);
+      color: #fff;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
       margin: 10px;
       transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for scaling and blurring */
@@ -25,7 +25,7 @@ ion-content {
       ion-item {
         --background: var(--ion-card-background);
         font-size: 1.2em;
-        color: #333;
+        color: #fff;
       }
   
       .card-header {

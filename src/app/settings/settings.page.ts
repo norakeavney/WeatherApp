@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 
 @Component({
   selector: 'app-settings',
@@ -9,25 +8,22 @@ import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 export class SettingsPage {
   darkMode: boolean = false;
 
-  constructor(private nativeStorage: NativeStorage) {
+  constructor() {
     this.loadSettings();
   }
 
   loadSettings() {
-    this.nativeStorage.getItem('darkMode').then(value => {
-      this.darkMode = value;
+    const darkModeSetting = localStorage.getItem('darkMode');
+    if (darkModeSetting !== null) {
+      this.darkMode = darkModeSetting === 'true';
       this.toggleDarkMode(); // Apply the saved theme
-    }).catch(() => {
+    } else {
       this.darkMode = false; // Default to light mode if no setting is saved
-    });
+    }
   }
 
   toggleDarkMode() {
     document.body.classList.toggle('dark-theme', this.darkMode);
-    this.nativeStorage.setItem('darkMode', this.darkMode).then(() => {
-      console.log('Dark mode setting saved');
-    }).catch(error => {
-      console.error('Error saving dark mode setting', error);
-    });
+    localStorage.setItem('darkMode', this.darkMode.toString());
   }
 }

@@ -1,45 +1,38 @@
 ion-content {
-    --background: transparent; /* Background handled by the component's logic */
-    
-    .ion-padding {
-      padding: 8px;
-    }
+    --background: var(--ion-background-color); /* Apply the background color variable */
+    color: var(--ion-text-color); /* Apply the text color variable */
   
-    ion-searchbar {
-      margin-bottom: 20px;
-    }
-  
-    /* Location Card Styling */
     .location-card {
       text-align: center;
-      --background: transparent;
+      --background: var(--ion-card-background);
+      color: var(--ion-text-color);
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       height: 150px; /* Adjust height as needed */
+      flex: 1 1; /* Ensures that cards take up equal space */
       
       h1.city-name {
-        font-size: 2.5em; /* Larger font for city name */
+        font-size: 2.5em;
         font-weight: bold;
         margin: 0;
-        color: #fff;
+        color: var(--ion-text-color);
       }
   
       p.local-time {
-        font-size: 1.5em; /* Slightly smaller font for local time */
+        font-size: 1.5em;
         margin-top: 5px;
-        color: #ddd;
+        color: var(--ion-text-color);
       }
     }
   
-    /* Weather Detail Card Styling */
     .weather-card {
-      border-radius: 15px; /* Rounded corners */
-      --background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+      border-radius: 15px;
+      --background: var(--ion-card-background);
+      color: var(--ion-text-color);
       margin: 10px;
-      transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for scaling and blurring */
+      transition: transform 0.3s ease, filter 0.3s ease;
       flex: 1 1; /* Ensures that cards take up equal space */
   
       ion-card-content {
@@ -47,31 +40,27 @@ ion-content {
         font-size: 1.2em;
   
         .temp-style1 {
-          font-size: 2.5em; /* Size for temperature */
-          color: #333;
+          font-size: 2.5em;
+          color: var(--ion-text-color);
         }
-
+  
         .temp-style {
-          font-size: 2.5em; /* Size for temperature */
-          color: #333;
+          font-size: 2.5em;
+          color: var(--ion-text-color);
         }
       }
   
-      /* Enlarge and bring into focus on hover */
       &:hover {
-        transform: scale(1.03); /* Enlarge slightly */
-        
-        filter: brightness(1.1); /* Slightly brighten the card */
+        transform: scale(1.03);
+        filter: brightness(1.1);
       }
   
-      /* Make other cards less prominent when one is hovered */
       &:not(:hover) {
-        filter: blur(0.2px) brightness(0.9); /* Blur and darken slightly */
-        transition: filter 0.3s ease; /* Smooth transition for blurring */
+        filter: blur(0.2px) brightness(0.9);
+        transition: filter 0.3s ease;
       }
     }
   
-    /* Center content in grid */
     ion-grid {
       ion-row {
         justify-content: center;
@@ -79,12 +68,11 @@ ion-content {
         ion-col {
           display: flex;
           justify-content: center;
-          max-width: 100%; /* Ensure columns don't shrink */
+          max-width: 100%;
         }
       }
     }
   
-    /* Spinner Styling */
     ion-spinner {
       display: block;
       margin: 20px auto;

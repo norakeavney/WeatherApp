@@ -6,6 +6,7 @@ import { LoadingController } from '@ionic/angular';
 const API_URL = environment.API_URL;
 const API_KEY = environment.API_KEY;
 
+// Define the structure of the weather data received from the API
 interface WeatherResponse {
   main: {
     temp: number;

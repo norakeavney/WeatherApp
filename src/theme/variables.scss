@@ -1,2 +1,18 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+/* Light Mode Variables */
+:root {
+    --ion-background-color: #ffffff;
+    --ion-text-color: #000000;
+    --ion-card-background: #f4f4f4;
+    --ion-toolbar-background: #f8f8f8;
+    --ion-toolbar-text-color: #333333;
+  }
+  
+  /* Dark Mode Variables */
+  :root.dark-theme {
+    --ion-background-color: #1e1e1e;
+    --ion-text-color: #ffffff;
+    --ion-card-background: #2c2c2c;
+    --ion-toolbar-background: #333333;
+    --ion-toolbar-text-color: #f4f4f4;
+  }
+  

@@ -1,66 +1,43 @@
 ion-content {
     --background: transparent; /* Background handled by the component's logic */
-    
+  
     .ion-padding {
       padding: 8px;
     }
   
-    ion-searchbar {
+    .headingLabel {
+      font-size: 2.5em; /* Larger font for the heading */
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
       margin-bottom: 20px;
     }
   
-    /* Location Card Styling */
-    .location-card {
-      text-align: center;
-      --background: transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 150px; /* Adjust height as needed */
-      
-      h1.city-name {
-        font-size: 2.5em; /* Larger font for city name */
-        font-weight: bold;
-        margin: 0;
-        color: #fff;
-      }
-  
-      p.local-time {
-        font-size: 1.5em; /* Slightly smaller font for local time */
-        margin-top: 5px;
-        color: #ddd;
-      }
-    }
-  
-    /* Weather Detail Card Styling */
-    .weather-card {
+    ion-card {
       border-radius: 15px; /* Rounded corners */
       --background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
       margin: 10px;
       transition: transform 0.3s ease, filter 0.3s ease; /* Smooth transition for scaling and blurring */
-      flex: 1 1; /* Ensures that cards take up equal space */
-  
-      ion-card-content {
-        text-align: center;
+    
+      ion-item {
+        --background: transparent;
         font-size: 1.2em;
+        color: #333;
+      }
   
-        .temp-style1 {
-          font-size: 2.5em; /* Size for temperature */
-          color: #333;
-        }
-
-        .temp-style {
-          font-size: 2.5em; /* Size for temperature */
-          color: #333;
-        }
+      .card-header {
+        font-size: 1.4em; /* Slightly larger font for the card headers */
+        font-weight: bold; /* Bold font for the headers */
+        color: #38ff4c; /* Primary color for headers */
+        padding: 10px 16px; /* Padding around the header text */
+        background-color: #f9f9f9; /* Light background color for the header */
+        border-bottom: 1px solid #e0e0e0; /* Subtle border to separate header */
       }
   
       /* Enlarge and bring into focus on hover */
       &:hover {
         transform: scale(1.03); /* Enlarge slightly */
-        
         filter: brightness(1.1); /* Slightly brighten the card */
       }
   
@@ -70,7 +47,7 @@ ion-content {
         transition: filter 0.3s ease; /* Smooth transition for blurring */
       }
     }
-  
+    
     /* Center content in grid */
     ion-grid {
       ion-row {

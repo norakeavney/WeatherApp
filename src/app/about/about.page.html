@@ -1,0 +1,42 @@
+  <!-- About Page Content -->
+   <ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        About
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="no-scroll">
+    <div style="text-align: center; margin: 10px;">
+      <ion-label class="headingLabel">About</ion-label>
+    </div> 
+
+    <ion-card>
+      <ion-item lines="none" class="card-header">
+        What Even is This App?
+      </ion-item>
+      <ion-item lines="none" style="padding: 5px;">
+        This app provides weather updates locally or via search. Using data from a very accurate weather API.
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-item lines="none" class="card-header">Features</ion-item>
+      <ion-item lines="none">Current weather conditions</ion-item>
+      <ion-item lines="none">Search City specific weather</ion-item>
+      <ion-item lines="none">Customizable settings</ion-item>
+    </ion-card>
+
+    <ion-card>
+      <ion-item lines="none" class="card-header">
+        The API
+      </ion-item>
+      <ion-item lines="none" style="padding: 5px;">This app uses the OpenWeatherMap API to fetch and display weather data.</ion-item>
+    </ion-card>
+  </ion-content>
+</ion-app>

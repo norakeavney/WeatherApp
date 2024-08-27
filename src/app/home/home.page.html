@@ -1,23 +1,87 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      Weather in Dublin
+      Weather in {{ cityName || 'Your City' }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card *ngIf="weatherData">
-    <ion-card-header>
-      <ion-card-title>{{ weatherData.name }}</ion-card-title>
-      <ion-card-subtitle>Temperature: {{ weatherData.main.temp }}°K</ion-card-subtitle>
-    </ion-card-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!--Example of two-way data binding-->
+  <ion-searchbar
+    [(ngModel)]="searchQuery"
+    placeholder="Enter city name"
+    (ionInput)="onSearchChange($event)"
+    (ionClear)="clearSearch()"
+  ></ion-searchbar>
+
+  <ion-card *ngIf="!loading" class="location-card">
     <ion-card-content>
-      Weather: {{ weatherData.weather[0].description }}<br>
-      Humidity: {{ weatherData.main.humidity }}%<br>
-      Wind Speed: {{ weatherData.wind.speed }} m/s
+      <!--Example of interpolation data binding-->
+      <h1 class="city-name">{{ cityName }}</h1>
+      <p class="local-time">{{ localTime| date: 'EEE, dd MMM, h:mm a' }}</p>
     </ion-card-content>
   </ion-card>
-  <ion-spinner *ngIf="!weatherData"></ion-spinner>
-</ion-content>
 
+  <ion-grid *ngIf="!loading">
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <ion-card class="weather-card">
+          <ion-card-content>
+            <ion-label>Temperature</ion-label>
+            <div class="temp-style">{{ (localTemp?.temp - 273.15).toFixed(0) }}°</div>
+            <img [src]=weatherIcon slot="end">
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card class="weather-card">
+          <ion-card-content>
+            <ion-label>Feels Like</ion-label>
+            <div class="temp-style">{{ (localTemp?.feels_like - 273.15).toFixed(0) }}°</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card class="weather-card">
+          <ion-card-content>
+            <ion-label>Highs</ion-label>
+            <div class="temp-style">{{ (localTemp?.temp_max - 273.15).toFixed(0) }}°</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-md="4">
+        <ion-card class="weather-card">
+          <ion-card-content>
+            <ion-label>Lows</ion-label>
+            <div class="temp-style">{{ (localTemp?.temp_min - 273.15).toFixed(0) }}°</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card class="weather-card">
+          <ion-card-content>
+            <ion-label>Pressure</ion-label>
+            <div class="temp-style">{{ localTemp?.pressure }} hPa</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card class="weather-card">
+          <ion-card-content>
+            <ion-label>Humidity</ion-label>
+            <div class="temp-style">{{ localTemp?.humidity }}%</div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+</ion-content>
